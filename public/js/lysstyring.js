@@ -1,4 +1,6 @@
-var socket = io.connect('http://localhost/lights');
+
+var socket = io();
+
 
 <!-- check that site are ready -->
 $(function() {

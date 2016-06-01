@@ -6,9 +6,12 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var chat = io.of('/chat');
-var lights = io.of('/lights');
-var lightss = require('./lysstyring');
+
+
+//variables
+var ledlight = [false, false, false, false];
+var users = 9;
+
 
 
 
@@ -49,8 +52,57 @@ app.get('/chat', function(req, res){
 
 
 <!-- user connection -->
-lights.on('connection', lightss);
+io.on('connection', function(socket){
 
+users = users + 1;
+console.log('User connected to lightapp, there are ' + users + ' connected!');
+
+<!-- Lys stue betjenes -->
+socket.on('LightSwitch1', function () {
+    ledlight[0] = !ledlight[0];
+    console.log('Lys1: ' + ledlight[0]);
+    socket.emit('Lightstate', ledlight);
+    socket.emit('user', users);
+});
+
+<!-- Lys bad betjenes -->
+socket.on('LightSwitch2', function () {
+    ledlight[1] = !ledlight[1];
+    console.log('Lys2: ' + ledlight[1]);
+    socket.emit('Lightstate', ledlight);
+});
+
+<!-- Lys kjokken betjenes -->
+socket.on('LightSwitch3', function () {
+    ledlight[2] = !ledlight[2];
+    console.log('Lys3: ' + ledlight[2]);
+    socket.emit('Lightstate', ledlight);
+});
+
+<!-- alle lys paa betjenes -->
+socket.on('LightSwitch4', function () {
+  if ((ledlight[0] == true) && (ledlight[1] == true) && (ledlight[2] == true) && (ledlight[3] == true)){
+      ledlight = [false, false, false, false];
+  } else {
+      ledlight = [true, true, true, true];
+  }
+    console.log('Lys4: ' + ledlight[3]);
+    socket.emit('Lightstate', ledlight);
+});
+
+
+socket.on('disconnect', function(){
+  users = users - 1;
+  console.log('User disconnected lightapp, there are ' + users + ' connected!');
+  socket.emit('user', users);
+});
+
+socket.on('ready', function (){
+  socket.emit('Lightstate', ledlight);
+  socket.emit('user', users);
+});
+
+});
 
 
 
