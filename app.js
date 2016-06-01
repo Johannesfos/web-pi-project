@@ -18,7 +18,10 @@ var led1 = Gpio(14, 'out');
 var led2 = Gpio(15, 'out');
 var led3 = Gpio(18, 'out');
 
-
+// set outputs
+led1.writeSync(ledlight[0]);
+led2.writeSync(ledlight[1]);
+led3.writeSync(ledlight[2]);
 
 
 
@@ -65,11 +68,12 @@ console.log('User connected to lightapp, there are ' + users + ' connected!');
 
 <!-- Lys stue betjenes -->
 socket.on('LightSwitch1', function () {
+
     ledlight[0] = !ledlight[0];
     console.log('Lys1: ' + ledlight[0]);
     socket.emit('Lightstate', ledlight);
     socket.emit('user', users);
-    led1.writeSync(ledlight[0]);
+
 });
 
 <!-- Lys bad betjenes -->
@@ -77,7 +81,7 @@ socket.on('LightSwitch2', function () {
     ledlight[1] = !ledlight[1];
     console.log('Lys2: ' + ledlight[1]);
     socket.emit('Lightstate', ledlight);
-    led2.writeSync(ledlight[1]);
+
 });
 
 <!-- Lys kjokken betjenes -->
@@ -85,21 +89,17 @@ socket.on('LightSwitch3', function () {
     ledlight[2] = !ledlight[2];
     console.log('Lys3: ' + ledlight[2]);
     socket.emit('Lightstate', ledlight);
-    led3.writeSync(ledlight[2]);
+
 });
 
 <!-- alle lys paa betjenes -->
 socket.on('LightSwitch4', function () {
   if ((ledlight[0] == true) && (ledlight[1] == true) && (ledlight[2] == true) && (ledlight[3] == true)){
       ledlight = [false, false, false, false];
-      led1.writeSync(ledlight[0]);
-      led2.writeSync(ledlight[1]);
-      led3.writeSync(ledlight[2]);
+
   } else {
       ledlight = [true, true, true, true];
-      led1.writeSync(ledlight[0]);
-      led2.writeSync(ledlight[1]);
-      led3.writeSync(ledlight[2]);
+
   }
     console.log('Lys4: ' + ledlight[3]);
     socket.emit('Lightstate', ledlight);
