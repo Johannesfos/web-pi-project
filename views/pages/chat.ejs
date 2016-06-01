@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <% include ../partials/head %>
+     <style>
+     #messages { list-style-type: none; margin: 0; padding: 0; }
+     #messages li { padding: 5px 10px; }
+     #messages li:nth-child(odd) { background: #eee; }
+     </style>
+
+ </head>
+ <body class="container">
+
+     <header>
+         <% include ../partials/header %>
+     </header>
+
+     <main>
+         <div class="jumbotron">
+             <center><h3>chat</h3></center>
+
+             <div data-login="login1">
+             <ul id="messages"></ul>
+
+
+             <form action="/c">
+               <input id="m" autocomplete="off" /><button>Send</button>
+             </form>
+          </div>
+
+         </div>
+     </main>
+
+     <footer>
+         <% include ../partials/footer %>
+     </footer>
+ <% include ../partials/scripts %>
+
+ </body>
+ </html>

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+          <h3>Lysstyring</h3>
+
+            <p>Dette er en applikasjon hvor du kan styre lys ifra nettsiden. Prøv da vel!</p>
+
+            <!--  Light buttons at small screen small screens  -->
+          <div class=" visible-xs hidden-md hidden-lg">
+            <center>
+          <div class="padd btn-group-vertical">
+            <button class="LightSwitch btn btn-md btn-primary btn-width" data-LightSwitchid="LightSwitch1" type="button">
+            <span class="pull-left">Lys stue</span> <span class="Lys0 badge pull-right" ></span></button>
+            <button class="LightSwitch btn btn-md btn-primary btn-width" data-LightSwitchid="LightSwitch2" type="button">
+            <span class="pull-left">Lys bad</span> <span class="Lys1 badge pull-right" ></span></button>
+            <button class="LightSwitch btn btn-md btn-primary btn-width" data-LightSwitchid="LightSwitch3" type="button">
+              <span class="pull-left">Lys kjøkken</span> <span class="Lys2 badge pull-right" ></span></button>
+            <button class="LightSwitch btn btn-md btn-primary btn-width" data-LightSwitchid="LightSwitch4" type="button">
+              <span class="pull-left">Alle lys</span> <span class="Lys3 badge pull-right" ></span></button>
+          </div>
+            <h6 class="users text-bottom text-nowrap text-muted"></h6>
+            </center>
+
+          </div>
+            <!--Light buttons at  big screens  -->
+          <div class="hidden-xs visible-sm visible-md visible-lg">
+            <div class="padd btn-group">
+              <button class="LightSwitch btn btn-md btn-primary btn-width" data-LightSwitchid="LightSwitch1" type="button">
+                <span class="pull-left">Lys stue</span> <span class="Lys0 badge pull-right" ></span></button>
+              <button class="LightSwitch btn btn-md btn-primary btn-width" data-LightSwitchid="LightSwitch2" type="button">
+                <span class="pull-left">Lys bad</span> <span class="Lys1 badge pull-right" ></span></button>
+              <button class="LightSwitch btn btn-md btn-primary btn-width" data-LightSwitchid="LightSwitch3" type="button">
+                <span class="pull-left">Lys kjøkken</span> <span class="Lys2 badge pull-right" ></span></button>
+              <button class="LightSwitch btn btn-md btn-primary btn-width" data-LightSwitchid="LightSwitch4" type="button">
+                <span class="pull-left">Alle lys</span> <span class="Lys3 badge pull-right" ></span></button>
+            </div>
+            <center>
+            <br>
+            <br>
+            <h6 class="users text-bottom text-nowrap text-muted pull-left"></h6>
+            </center>
+          </div>
+        </div>
+
+
+
+
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+ <% include ../partials/scripts %>
+<script src="js/lysstyring.js"></script>
+</body>
+</html>
