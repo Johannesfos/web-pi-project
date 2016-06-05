@@ -1,20 +1,20 @@
 
-var socket = io();
+var lightapp = io('/lightapp');
 
 
 <!-- check that site are ready -->
 $(function() {
     console.log( "ready!" );
-    socket.emit('ready');
+    lightapp.emit('ready');
 
 
 <!--users using application -->
-    socket.on('user', function(users){
+    lightapp.on('user', function(users){
       $('.users').text('There are ' + users + ' users connected to this application.');
     });
 
 <!-- Check lightstate -->
-    socket.on('Lightstate', function(ledlight){
+    lightapp.on('Lightstate', function(ledlight){
 
 
       ledlight.slice(0,3).forEach( function(state, i, arr) {
@@ -42,6 +42,6 @@ $(function() {
 <!--LightSwitch stue-->
     $('.LightSwitch').click(function() {
       var LightSwitchid = $(this).attr('data-LightSwitchid');
-        socket.emit(LightSwitchid);
+        lightapp.emit(LightSwitchid);
     });
 });
