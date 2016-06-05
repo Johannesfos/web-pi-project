@@ -11,9 +11,9 @@
         margin: 0 !important;
         padding: 0 !important;
        }
-       li {
+       .lista li {
        padding: 5px 10px !important;}
-       li:nth-child(odd) { background: #eee !important; }
+       .lista li:nth-child(odd) { background: #eee !important; }
 
      </style>
 
@@ -29,10 +29,10 @@
              <center><h3>chat</h3></center>
 
 
-             <ul id="messages"></ul>
+             <ul id="messages" class="lista"></ul>
 
              <form action=" " style="form-group">
-               <input id="m" style="form-control" autocomplete="off" /><button>Send</button>
+               <input id="m" size="200px" autocomplete="off" /><button>Send</button>
              </form>
           </div>
 
