@@ -15,7 +15,7 @@ $('form').submit(function(){
   return false;
 });
 chatapp.on('chat message', function(msg){
-  $('#messages').append($('<li>').text('client: ' + msg));
+  $('#messages').append($('<li style="list-group-text">').text('client: ' + msg));
     document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
 });
 
