@@ -20,11 +20,9 @@ $(function() {
       ledlight.slice(0,3).forEach( function(state, i, arr) {
         if(state) {
           $('.Lys'+i).text('PÅ');
-          $('.myswitch').toggleClass("myswitchOn");
         }
         else {
           $('.Lys'+i).text('AV');
-          $('.myswitch').toggleClass("myswitchOn");
         }
       });
 
@@ -35,15 +33,13 @@ $(function() {
       <!-- alle -->
         if (testeetteleranna){
              $('.Lys3').text("PÅ");
-             $('.myswitch').toggleClass("myswitchOn");
         }else {
              $('.Lys3').text("AV");
-             $('.myswitch').toggleClass("myswitchOn");
         }
 
   });
 
-<!--LightSwitches-->
+<!--LightSwitch stue-->
     $('.myswitch').click(function() {
       var LightSwitchid = $(this).attr('data-LightSwitchid');
       $(this).toggleClass("myswitchOn");
