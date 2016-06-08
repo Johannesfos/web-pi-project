@@ -40,9 +40,8 @@ $(function() {
   });
 
 <!--LightSwitch stue-->
-    $('.myswitch').click(function() {
+    $('.LightSwitch').click(function() {
       var LightSwitchid = $(this).attr('data-LightSwitchid');
-      $(this).toggleClass("myswitchOn");
         lightapp.emit(LightSwitchid);
     });
 });
